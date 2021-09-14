@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidAssignments</string>
+    <string name="hello_message">Hola Mundo!</string>
+    <string name="ButtonText">Soy un botón</string>
+</resources>
