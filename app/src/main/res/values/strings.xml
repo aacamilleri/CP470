@@ -8,4 +8,11 @@
     <string name="Switch">What does this do?</string>
     <string name="RadioButton">RadioButton</string>
     <string name="CheckBox">CheckBox</string>
+    <string name="DialogMessage">Do you wish to close the app?</string>
+    <string name="DialogTitle">Quit?</string>
+    <string name="OK">OK</string>
+    <string name="CANCEL">CANCEL</string>
+    <string name="SwitchOff">Switch is Off</string>
+    <string name="SwitchOn">Switch is On</string>
+    <string name="Response">ListItemsActivity passed: My information to share</string>
 </resources>

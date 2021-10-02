@@ -17,7 +17,7 @@
         android:text="@string/RadioButton" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill"
@@ -31,9 +31,10 @@
         android:text="@string/Switch" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/picButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        app:srcCompat="@android:drawable/ic_menu_camera"
+        tools:ignore="SpeakableTextPresentCheck" />
 </GridLayout>
