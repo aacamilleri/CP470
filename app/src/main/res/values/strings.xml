@@ -15,4 +15,7 @@
     <string name="SwitchOff">Switch is Off</string>
     <string name="SwitchOn">Switch is On</string>
     <string name="Response">ListItemsActivity passed: My information to share</string>
+    <string name="ChatButton">Start Chat!</string>
+    <string name="Send">Send</string>
+    <string name="sendMsg">Send Message</string>
 </resources>

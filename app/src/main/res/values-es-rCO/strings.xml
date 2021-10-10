@@ -15,4 +15,7 @@
     <string name="SwitchOff">El interruptor está apagado</string>
     <string name="SwitchOn">El interruptor está encendido</string>
     <string name="Response">ListItemsActivity pasado: mi información para compartir</string>
+    <string name="ChatButton">Comenzar chat!</string>
+    <string name="Send">Enviar</string>
+    <string name="sendMsg">Enviar Mensaje</string>
 </resources>

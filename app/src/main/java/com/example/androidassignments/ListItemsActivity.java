@@ -27,6 +27,7 @@ public class ListItemsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(ACTIVITY_NAME, "In onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_items);
 
@@ -73,7 +74,7 @@ public class ListItemsActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Intent resultIntent = new Intent();
-                            resultIntent.putExtra("Response", R.string.Response);
+                            resultIntent.putExtra("Response", "ListItemsActivity passed: My information to share.");
                             setResult(Activity.RESULT_OK, resultIntent);
                             finish();
                         }
