@@ -12,14 +12,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidAssignments">
+        android:theme="@style/Theme.AndroidAssignments" >
+        <activity
+            android:name=".TestToolbar"
+            android:exported="true"
+            android:label="@string/title_activity_test_toolbar"
+            android:theme="@style/Theme.AndroidAssignments.NoActionBar" />
+
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="MainActivity"/>
+            android:value="MainActivity" />
+
         <activity
             android:name=".ChatWindow"
-            android:parentActivityName=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ListItemsActivity"
             android:exported="true" />

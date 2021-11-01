@@ -1,8 +1,16 @@
 package com.example.androidassignments;
 
+import static com.example.androidassignments.ChatDatabaseHelper.DATABASE_NAME;
+import static com.example.androidassignments.ChatDatabaseHelper.KEY_MESSAGE;
+import static com.example.androidassignments.ChatDatabaseHelper.KEY_ID;
+import static com.example.androidassignments.ChatDatabaseHelper.TABLE_NAME;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.widget.Adapter;
 import android.content.Context;
 import android.os.Bundle;
@@ -20,7 +28,9 @@ import java.util.ArrayList;
 
 public class ChatWindow extends AppCompatActivity {
     protected static final String ACTIVITY_NAME = "ChatWindow";
+    static final String MESSAGE_QUERY = "SELECT KEY_MESSAGE FROM MESSAGES";
     ArrayList<String> texts = new ArrayList<String>();
+    protected static SQLiteDatabase Database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +43,22 @@ public class ChatWindow extends AppCompatActivity {
         ChatAdapter messageAdapter = new ChatAdapter(this);
         listView.setAdapter(messageAdapter);
 
+
+        ChatDatabaseHelper dhHelper = new ChatDatabaseHelper(this);
+        Database = dhHelper.getWritableDatabase();
+
+        final Cursor cursor = Database.rawQuery(MESSAGE_QUERY, null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()) {
+            Log.i(ACTIVITY_NAME, "SQL NOTIFIER:" + cursor.getString(cursor.getColumnIndexOrThrow(KEY_MESSAGE)));
+            texts.add(cursor.getString(cursor.getColumnIndexOrThrow(KEY_MESSAGE)));
+            cursor.moveToNext();
+        }
+
+        for(int i=0; i<cursor.getColumnCount();i++) {
+            Log.i(ACTIVITY_NAME, "Column Name: " + cursor.getColumnName(i));
+        }
+
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +66,10 @@ public class ChatWindow extends AppCompatActivity {
                 texts.add(textMsg.getText().toString());
                 messageAdapter.notifyDataSetChanged();
                 textMsg.setText("");
+
+                ContentValues cv = new ContentValues();
+                cv.put(KEY_MESSAGE, textMsg.getText().toString());
+                Database.insert(TABLE_NAME, null, cv);
             }
         });
     }
@@ -72,4 +102,10 @@ public class ChatWindow extends AppCompatActivity {
             }
 
         }
+
+    protected void onDestroy() {
+        Log.i(ACTIVITY_NAME, "In onDestroy");
+        super.onDestroy();
+        Database.close();
     }
+}
