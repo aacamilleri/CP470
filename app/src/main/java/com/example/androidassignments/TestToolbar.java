@@ -1,5 +1,6 @@
 package com.example.androidassignments;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -78,5 +79,12 @@ public class TestToolbar extends AppCompatActivity {
                 break;
         }
         return bool;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setResult(Activity.RESULT_CANCELED);
+        finish();
     }
 }

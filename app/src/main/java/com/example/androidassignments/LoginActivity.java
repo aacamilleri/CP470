@@ -1,6 +1,8 @@
 package com.example.androidassignments;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -70,6 +72,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onDestroy() {
         Log.i(ACTIVITY_NAME, "In onDestroy");
         super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setResult(Activity.RESULT_CANCELED);
+        finish();
     }
 }
 

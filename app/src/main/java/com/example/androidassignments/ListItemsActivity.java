@@ -124,4 +124,11 @@ public class ListItemsActivity extends AppCompatActivity {
         Log.i(ACTIVITY_NAME, "In onDestroy");
         super.onDestroy();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setResult(Activity.RESULT_CANCELED);
+        finish();
+    }
 }
